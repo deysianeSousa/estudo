@@ -23,10 +23,7 @@ public class GeradorDeRecibo {
 
 		switch (categoria) {
 			case NORMAL:
-				totalParcial += 2.0;
-				if(diasDeAluguel > 2) {
-					totalParcial += (diasDeAluguel - 2) * categoria.getMulta();
-				}
+				totalParcial += new CategoriaNormal().calculaAluguel(diasDeAluguel);
 				break;
 
 			case LANCAMENTO:

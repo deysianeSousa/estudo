@@ -1,23 +1,22 @@
 package locadora;
 
 public enum Categoria {
-	NORMAL(1.5, 2),
-	LANCAMENTO(3, 0),
-	INFANTIL(1.5, 3);
+	NORMAL(new CategoriaNormal()),
+	LANCAMENTO(new CategoriaLancamento()),
+	INFANTIL(new CategoriaInfantil());
 
-	private double multa;
-	private int diferencaDias;
+	private Categorias categorias;
 
-	public double getMulta() {
-		return multa;
+	Categoria(Categorias categorias) {
+		this.categorias = categorias;	
 	}
-	public int getDiferencaDias() {
-		return diferencaDias;
+	
+	public Categorias getCalculoMulta() {
+		return categorias;
 	}
-
-	Categoria(double multa, int diferencaDias) {
-		this.multa = multa;
-		this.diferencaDias = diferencaDias;
-	}
+	
+	public void setCategorias(Categorias categorias) {
+		this.categorias = categorias;
+	}	
 
 }
